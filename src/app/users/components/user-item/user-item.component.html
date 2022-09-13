@@ -1,0 +1,8 @@
+<div class="user-item">
+  <div class="id">{{user.id}}</div>
+  <div class="pointer"><a routerLink="{{user.id}}">{{user.name}}</a></div>
+  <div>{{user.email}}</div>
+  <div>{{user.phone}}</div>
+  <button mat-raised-button color="secondary" class="add-button" (click)="removeUser()">Remove User</button>
+  <button mat-raised-button color="secondary" class="add-button" (click)="editUser()">Edit User</button>
+</div>

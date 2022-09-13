@@ -1,0 +1,23 @@
+<h2 mat-dialog-title>{{data.header}}</h2>
+<form [formGroup]="userForm" class="user-form">
+  <mat-form-field appearance="fill">
+    <mat-label>Name</mat-label>
+    <input matInput class="form-control" formControlName="name">
+  </mat-form-field>
+  <mat-form-field appearance="fill">
+    <mat-label>Email</mat-label>
+    <input matInput class="form-control" formControlName="email">
+    <mat-error
+      *ngIf="userForm.controls['email'].invalid">{{userForm.controls['email'].errors?.['notUnique'] ? 'Must be unique' : null}}</mat-error>
+  </mat-form-field>
+  <mat-form-field appearance="fill">
+    <mat-label>Phone Number</mat-label>
+    <input matInput class="form-control" formControlName="phone">
+    <mat-error
+      *ngIf="userForm.controls['phone'].invalid">{{userForm.controls['phone'].errors?.['notUnique'] ? 'Must be unique' : null}}</mat-error>
+  </mat-form-field>
+  <div mat-dialog-actions class="dialog-actions">
+    <button mat-button (click)="userForm.valid ? submit() : null">Ok</button>
+    <button mat-button mat-dialog-close>Close</button>
+  </div>
+</form>
